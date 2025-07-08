@@ -1,0 +1,80 @@
+.container {
+    h1 {
+      margin-left: 350px;
+      margin-bottom: 30px;
+      font-family: "Roboto", sans-serif;
+    }
+  
+    form {
+      position: absolute;
+      top: 15%;
+      left: 19%;
+      width: 900px; 
+      
+      .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+  
+        select {
+          width: 350px;
+          height: 35px;
+          border-radius: 4px;
+          flex: 1;
+          padding: 8px 12px;
+          border: 1.5px solid #636363;
+          border-radius: 4px;
+          font-size: 16px;
+        }
+  
+        .required {
+          color: red;
+        }
+        
+        p {
+          width: 150px; 
+          margin: 0;
+          font-family: "Roboto", sans-serif;
+          font-size: 16px;
+        }
+        
+        input {
+          flex: 1;
+          padding: 8px 12px;
+          border: 1.5px solid #636363;
+          border-radius: 4px;
+          font-size: 16px;
+          
+          &[type="checkbox"] {
+            margin-right: 280px;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            min-height: 24px;
+            margin-left: 8px;
+          }
+        }
+      }
+  
+      .btns {
+        display: flex;
+        gap: 0px; 
+  
+        .cl-btn, .crt-btn {
+          width: 450px; 
+          height: 50px;
+          font-size: 18px;
+        }
+  
+        .cl-btn {
+          background-color: black;
+          color: white;
+        }
+
+        .del-btn {
+          background-color: red;
+          color: white;
+        }
+      }
+    }
+  }

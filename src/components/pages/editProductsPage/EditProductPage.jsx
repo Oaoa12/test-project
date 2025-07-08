@@ -1,13 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { addProduct } from '../../features/productSlice'
-import './CreateProductPage.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { addProduct, deleteProduct } from '../../features/productSlice'
+import './EditProductPage.scss'
 
-const CreateProductPage = () => {
+const EditProductPage = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const formRef = React.useRef(null)
+  const products = useSelector(state => state.products.item)
 
   const handleSubmit = (e) => {
       e.preventDefault()
@@ -25,7 +26,7 @@ const CreateProductPage = () => {
 
   return (
     <div className='container'>
-      <h1>Создание типа продукции</h1>
+      <h1>Редактирование типа продукции</h1>
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className="form-row">
           <p>Кол-во пачек <span className='required'>*</span></p>
@@ -47,12 +48,13 @@ const CreateProductPage = () => {
           <input name="description" type="text" />
         </div>
         <div className='btns'>
+          <button type='button' className='del-btn' onClick={() => dispatch(deleteProduct(products.id))}>Удалить</button>
           <button type="button" onClick={() => navigate('/')} className='cl-btn'>Отмена</button>
-          <button type="submit" className='crt-btn'>Создать</button>
+          <button type="submit" className='crt-btn'>Сохранить</button>
         </div>
       </form>
     </div>
   )
 }
 
-export default CreateProductPage
+export default EditProductPage

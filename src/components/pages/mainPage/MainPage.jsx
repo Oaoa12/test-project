@@ -1,25 +1,20 @@
-import React from 'react'
-import './MainPage.scss'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import Table from '../../ui/table/Table'
+import './MainPage.scss'
 
 const MainPage = () => {
-
-    const PRODUCTS = [
-        {id: 1, count: 20, type: 'компрессия', date: '01.02.2024', status: 'Активно'},
-        {id: 2, count: 12, type: 'некомпрессия', date: '25.01.2024', status: 'Активно'},
-        {id: 3, count: 24, type: 'компрессия', date: '23.01.2024', status: 'Архив'},
-    ]
-
- const navigate = useNavigate()
+  const products = useSelector(state => state.products.items)
+  const navigate = useNavigate()
 
   return (
-
     <div className='container'>
       <h1>Список выпускаемой продукции</h1>
-      <button onClick={() => navigate('/create-product')}>Создать тип продукции</button>
+      <button onClick={() => navigate('/create-product')}>
+        Создать тип продукции
+      </button>
       <div className='table'>
-      <Table data={PRODUCTS}/>
+        <Table data={products} />
       </div>
     </div>
   )
